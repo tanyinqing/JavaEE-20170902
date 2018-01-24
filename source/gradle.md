@@ -5,8 +5,8 @@
 > [http://gradle.org/](http://gradle.org/)
 
 1. Gradle 的安装  下载免安装包
-
-   - unzip [gradle-2.13-all.zip](https://services.gradle.org/distributions/gradle-2.13-all.zip) to your_gradle_directory
+    - https://services.gradle.org/distributions/gradle-2.13-all.zip
+    - unzip [gradle-2.13-all.zip](https://services.gradle.org/distributions/gradle-2.13-all.zip) to your_gradle_directory
    
 2. Refresh all gradle projects shortcut
 
