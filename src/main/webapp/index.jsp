@@ -11,6 +11,20 @@
     <title>$Title$</title>
   </head>
   <body>
-  Hello,JSP！
+  <h1>index page</h1>
+  <form action="signIn.jsp">
+    <input name="email" placeholder="Email"> <br>
+    <input type="password" name="password" placeholder="Passsword"> <br>
+    <input type="submit" value="Sign in">
+  </form>
+  <%--下面的内容是小脚本--%>
+  <%
+  String message=(String)request.getAttribute("message");
+    if (message != null) {
+out.print(message);
+    }
+  %>
+  <hr>
+  <a href="sign_up.jsp" >sign up</a>
   </body>
 </html>
