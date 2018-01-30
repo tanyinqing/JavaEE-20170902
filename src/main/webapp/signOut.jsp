@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2018/1/26 0026
-  Time: 下午 11:36
+  Date: 2018/1/30 0030
+  Time: 下午 11:22
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,14 +11,9 @@
     <title>Title</title>
 </head>
 <body>
-<h1>home page</h1>
-<h1>home page session id: <%=session.getId()%></h1>
-<p>
-    <%=session.getAttribute("username")%>
-</p>
-<hr>
-<a href="signOut.jsp">Sgin out</a>
-<hr>
-<a href="test.jsp">go to test page</a>
+<%
+    session.invalidate();
+    request.getRequestDispatcher("index.jsp").forward(request,response);
+%>
 </body>
 </html>

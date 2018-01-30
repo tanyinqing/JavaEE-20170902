@@ -1,5 +1,6 @@
 * [目录](SUMMARY.md)
 
+- 应用的典范
 - 异步请求提交，制作动态网页的项目
 - jsp文件对应的java文件的目录
 - C:\Users\Administrator\.IntelliJIdea2017.2\system\tomcat\Unnamed_JavaEE-20170902\work\Catalina\localhost\ROOT\org\apache\jsp  

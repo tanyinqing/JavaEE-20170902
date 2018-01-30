@@ -13,9 +13,9 @@
 <body>
 <h1>Sign up page</h1>
 <form action="signUp.jsp">
-    <input name="email" placeholder="Email"> <br>
-    <input name="username" placeholder="username"> <br>
-    <input type="password" name="password" placeholder="Passsword"><br>
+    <input name="email" placeholder="Email" value="tom@tom.com"> <br>
+    <input name="username" placeholder="username" value="tan"> <br>
+    <input type="password" name="password" placeholder="Passsword" value="123"><br>
     <select name="citiies" multiple>
         <option value="Beijing">Beijing</option>
         <option value="Shanghai">Shanghai</option>

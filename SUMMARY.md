@@ -12,4 +12,8 @@
     * [home主页面](src/main/webapp/home.jsp)	
     * [signIn登录后的后台验证页面](src/main/webapp/signIn.jsp)	
     * [signUp注册后的后台取值页面](src/main/webapp/signUp.jsp)	
+    * [测试session的生存周期](src/main/webapp/test.jsp)	
+    * [使session失效](src/main/webapp/signOut.jsp)	
+    * [数据库的使用文档](resource/数据库的使用.md)	
+    * [创建数据库SQL语句](sql/db.sql)	
   
