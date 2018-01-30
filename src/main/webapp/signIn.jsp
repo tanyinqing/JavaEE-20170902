@@ -37,8 +37,8 @@ Created by IntelliJ IDEA.
     // 查询数据库
     if (username!=null) {
 //        跳转到主页面
-      //  request.setAttribute("username",username); 只有效一次
-        session.setAttribute("username",username);
+      //  request.setAttribute("username",username); 只有效一次  请求中
+        session.setAttribute("username",username);//一次会话中都会有效
         request.getRequestDispatcher("home.jsp").forward(request, response);
     } else {
         request.setAttribute("message", "非法的用户名");
