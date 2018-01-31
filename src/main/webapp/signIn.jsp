@@ -39,14 +39,24 @@ Created by IntelliJ IDEA.
 //        跳转到主页面
       //  request.setAttribute("username",username); 只有效一次  请求中
         session.setAttribute("username",username);//一次会话中都会有效
-        request.getRequestDispatcher("home.jsp").forward(request, response);
+//        request.getRequestDispatcher("home.jsp").forward(request, response);
+//       刷新也必须用重定向 刷新不会出错
+        response.sendRedirect("home.jsp");
     } else {
         request.setAttribute("message", "非法的用户名");
-        //页面跳转 并传送参数
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+//        登录失败 用转发跳转比较合适
+        //页面跳转 并传送参数  转发跳转
+       request.getRequestDispatcher("index.jsp").forward(request, response);
+//       重定向 不能保存消息
+        //     response.sendRedirect("index.jsp");
     }
     out.print(email + "," + password);
 %>
+
+  <%--
+   1. 登录成功时 转发与重定向？
+    2. 登录失败时，属性message是放在request内，还是放在session内
+    --%>
 
 </body>
 </html>

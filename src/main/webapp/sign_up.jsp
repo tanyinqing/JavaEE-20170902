@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>Sign up page</h1>
-<form action="signUp.jsp">
+<form action="signUp.jsp" method="post">
     <input name="email" placeholder="Email" value="tom@tom.com"> <br>
     <input name="username" placeholder="username" value="tan"> <br>
     <input type="password" name="password" placeholder="Passsword" value="123"><br>
@@ -27,5 +27,12 @@
     <br>
     <input type="submit" value="Sign in">
 </form>
+<%
+    String message= (String) request.getAttribute("message");
+    if (message != null) {
+        out.print(message);
+    }
+//    404是找不到页面
+%>
 </body>
 </html>

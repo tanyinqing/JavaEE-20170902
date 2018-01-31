@@ -13,7 +13,8 @@
   <body>
   <h1>index page session id: <%=session.getId()%></h1>
   <h1>index page</h1>
-  <form action="signIn.jsp">
+ <%--默认get提交--%>
+  <form action="signIn.jsp" method="post">
     <input name="email" placeholder="Email" value="tom@tom.com"> <br>
     <input type="password" name="password" placeholder="Passsword" value="123"> <br>
     <input type="submit" value="Sign in">

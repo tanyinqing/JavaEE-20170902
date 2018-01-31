@@ -11,6 +11,12 @@
     <title>Title</title>
 </head>
 <body>
+<%
+    String username= (String) session.getAttribute("username");
+    if (username==null){
+        response.sendRedirect("index.jsp");
+    }
+%>
 <h1>home page</h1>
 <h1>home page session id: <%=session.getId()%></h1>
 <p>

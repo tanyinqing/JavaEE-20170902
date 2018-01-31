@@ -4,6 +4,7 @@
 <%@ page import="java.rmi.ConnectException" %>
 <%@ page import="java.sql.Connection" %>
 <%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.ResultSet" %>
 Created by IntelliJ IDEA.
   User: Administrator
   Date: 2018/1/26 0026
@@ -28,8 +29,19 @@ Created by IntelliJ IDEA.
     //todo JDBC
     new Driver();
     Connection connection= DriverManager.getConnection("jdbc:mysql:///?user=root&password=system");
+//    先进行查询
+    String queryEmail = "SELECT * FROM db.user WHERE email = ?";
+    PreparedStatement preparedStatement=connection.prepareStatement(queryEmail);
+    preparedStatement.setString(1,email);
+    ResultSet resultSet=preparedStatement.executeQuery();
+    if (resultSet.next()) {
+        request.setAttribute("message", "Email is already existed.");
+        request.getRequestDispatcher("sign_up.jsp").forward(request, response);
+//        return;
+    }
+
     String sql="INSERT INTO db.user VALUE(NULL ,?,?,?)";
-    PreparedStatement preparedStatement=connection.prepareStatement(sql);
+     preparedStatement=connection.prepareStatement(sql);
     preparedStatement.setString(1,username);
     preparedStatement.setString(2,password);
     preparedStatement.setString(3,email);
@@ -39,7 +51,9 @@ Created by IntelliJ IDEA.
     connection.close();
     out.print(password+","+username+","+password+","+ Arrays.toString(cites)+","+Arrays.toString(hobbies));
 
-    request.getRequestDispatcher("index.jsp").forward(request,response);
+//    request.getRequestDispatcher("index.jsp").forward(request,response);
+//   注册页面必须用重定向  刷新不会出错
+    response.sendRedirect("index.jsp");
 %>
 </body>
 </html>
