@@ -9,3 +9,6 @@
   - C/S  例如QQ 安装软件才可以访问浏览器  大型软件 C client 服务端
   - 用户发出请求 提交表单request ;服务器处理，返回响应response
   - HTTP 请求和响应模型
+  
+- 重新部署  alt+shift+F10 选redeploy
+- 增加web.xml 应用配置文件  file-project Structure-facets  点加号
