@@ -12,7 +12,7 @@ import java.sql.*;
 public class SignServlet extends HttpServlet{
     @Override//2个参数 一个是请求  一个是响应
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String email = req.getParameter("email");
+      /*  String email = req.getParameter("email");
         String password = req.getParameter("password");
 
         System.out.println(email + password);
@@ -41,6 +41,6 @@ public class SignServlet extends HttpServlet{
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 }

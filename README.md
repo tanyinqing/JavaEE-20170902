@@ -12,3 +12,7 @@
   
 - 重新部署  alt+shift+F10 选redeploy
 - 增加web.xml 应用配置文件  file-project Structure-facets  点加号
+
+- run下看错误提示 
+    - 因为我的代码是复制老师的，但是我的数据库是自己手敲写的，所以数据库字段对应不正确也会出现空白页面
+- http://localhost:8080/

@@ -9,7 +9,7 @@ import java.io.IOException;
 
 @WebServlet("/signOut")
 public class SignOutServlet extends HttpServlet {
-//    锚点全部是get请求
+//    链接的请求 锚点全部是get请求
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

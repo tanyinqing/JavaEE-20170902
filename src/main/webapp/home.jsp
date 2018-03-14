@@ -23,8 +23,20 @@
     <%=session.getAttribute("username")%>
 </p>
 <hr>
-<a href="signOut.jsp">Sgin out</a>
+<a href="/user?action=signOut">Sign out</a>
+<hr>
 <hr>
 <a href="test.jsp">go to test page</a>
+<hr>
+<form action="/book" method="post">
+    <input type="hidden" name="action" value="add">
+    <input name="title" placeholder="Title"><br>
+    <input name="author" placeholder="Author"><br>
+    <input name="pubTime" placeholder="Publish time"><br>
+    <input name="price" placeholder="Price"><br>
+    <input name="amount" placeholder="Amount"><br>
+    Picture <input type="file" name="picture"><br>
+    <input type="submit" value="Add Book">
+</form>
 </body>
 </html>

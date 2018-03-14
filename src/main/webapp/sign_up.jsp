@@ -12,7 +12,9 @@
 </head>
 <body>
 <h1>Sign up page</h1>
-<form action="signUp.jsp" method="post">
+<%--<form action="signUp.jsp" method="post">--%>
+<form action="/user" method="post">  //运用java来处理请求
+    <input type="hidden" name="action" value="signUp">
     <input name="email" placeholder="Email" value="tom@tom.com"> <br>
     <input name="username" placeholder="username" value="tan"> <br>
     <input type="password" name="password" placeholder="Passsword" value="123"><br>
