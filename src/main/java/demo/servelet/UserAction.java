@@ -45,7 +45,8 @@ public class UserAction extends HttpServlet {
 
             if (resultSet.next()) {
                 req.getSession().setAttribute("username", resultSet.getString("username"));
-                resp.sendRedirect("home.jsp");
+               // resp.sendRedirect("home.jsp");//跳转到home界面
+                resp.sendRedirect("/book?action=queryAll");//查询和显示全部图书的信息
             } else {
                 req.setAttribute("message", "Invalid email or password.");
                 req.getRequestDispatcher("index.jsp").forward(req, resp);

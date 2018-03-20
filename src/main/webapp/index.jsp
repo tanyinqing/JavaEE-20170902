@@ -14,9 +14,11 @@
   <h1>index page session id: <%=session.getId()%></h1>
   <h1>index page</h1>
  <%--默认get提交--%>
-  <%--<form action="signIn.jsp" method="post">--%>   //运用页面处理请求
+  <%--<form action="signIn.jsp" method="post">--%>
+ <%--运用页面处理请求--%>
   <%--<form action="/signIn" method="post">  //运用java来处理请求--%>
-  <form action="/user" method="post">  //运用java来处理请求
+  <form action="/user" method="post">
+      <%--运用java来处理请求--%>
    <input type="hidden" name="action" value="signIn">
     <input name="email" placeholder="Email" value="tom@tom.com"> <br>
     <input type="password" name="password" placeholder="Passsword" value="123"> <br>

@@ -1,5 +1,6 @@
 package demo.servelet;
 
+import demo.model.Book;
 import demo.util.DB;
 
 import javax.servlet.ServletException;
@@ -10,7 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author mingfei.net@gmail.com
@@ -25,6 +29,9 @@ public class BookAction extends HttpServlet {
         String action = req.getParameter("action");
         if (action.equals("add")) {
             add(req, resp);
+        }
+        if (action.equals("queryAll")) {
+            queryAll(req, resp);
         }
     }
 
@@ -47,13 +54,45 @@ public class BookAction extends HttpServlet {
 
             preparedStatement.executeLargeUpdate();
 
-            resp.sendRedirect("home.jsp");
+//            resp.sendRedirect("home.jsp");
+            queryAll(req, resp);
 
             DB.close(null, preparedStatement, connection);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
+
+
+    private void queryAll(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String sql = "SELECT * FROM db.book ORDER BY id DESC";
+        Connection connection = DB.getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            List<Book> books = new ArrayList();
+            while (resultSet.next()) {
+                Book book = new Book(
+                        resultSet.getInt("id"),
+                        resultSet.getString("title"),
+                        resultSet.getString("author"),
+                        resultSet.getString("pubTime"),
+                        resultSet.getDouble("price"),
+                        resultSet.getInt("amount"),
+                        resultSet.getString("picture")
+                );
+                books.add(book);
+            }
+            DB.close(resultSet, preparedStatement, connection);
+            req.getSession().setAttribute("books", books);
+            resp.sendRedirect("home.jsp");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
