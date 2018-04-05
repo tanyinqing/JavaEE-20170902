@@ -7,21 +7,33 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
     <title>Title</title>
+    <script>
+function del() {
+    return confirm("delete?");
+}
+    </script>
 </head>
 <body>
-<%
+<%--<%
     String username= (String) session.getAttribute("username");
     if (username==null){
         response.sendRedirect("index.jsp");
     }
-%>
+%>--%>
+<c:if test="${sessionScope.username eq null}">
+    <c:redirect url="index.jsp"/>
+</c:if>
+
 <h1>home page</h1>
 <h1>home page session id: <%=session.getId()%></h1>
 <p>
-    <%=session.getAttribute("username")%>
+    <%--<%=session.getAttribute("username")%>--%>
+    ${requestScope.username}
 </p>
 <hr>
 <a href="/user?action=signOut">Sign out</a>
@@ -41,21 +53,58 @@
     <input type="submit" value="Add Book">
 </form>
 <hr>
+<pre>
+    c:choose
+    c:when
+    c:when
+    c:otherwise
+</pre>
 <%--登录进来的时候查询下图书--%>
 <%--action中调用--%>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>TITLE</th>
-        <th>AUTHOR</th>
-        <th>PUBLISH TIME</th>
-        <th>PRICE</th>
-        <th>AMOUNT</th>
-        <th>PICTURE</th>
-        <th colspan="2">OPERATION</th>
-    </tr>
+
+<table border="1">
+    <c:choose>
+         <%-- <c:when test="${sessionScope.books[0] eq null}">
+              NO RECORDS1.
+          </c:when>--%>
+        <c:when test="${fn:length(sessionScope.books) eq 0}">
+            NO RECORDS2.
+        </c:when>
+        <c:otherwise>
+            <tr>
+                <th>count</th>
+                <th>TITLE</th>
+                <th>AUTHOR</th>
+                <th>PUBLISH TIME</th>
+                <th>PRICE</th>
+                <th>AMOUNT</th>
+                <th>PICTURE</th>
+                <th colspan="2">OPERATION</th>
+            </tr>
+        </c:otherwise>
+    </c:choose>
+
+    <%--运用了forEach标签--%>
+    <%--begin 从第几条记录开始--%>
+    <%--end 从第几条记录结束--%>
+    <%--step 跳过几个--%>
+    <%--varStatus id变成序号--%>
+    <c:forEach var="book" items="${sessionScope.books}" varStatus="vs" begin="0" end="6" step="1">
+     <tr>
+         <%--<td>${book.id}</td>--%>
+         <td>${vs.index+1}</td>
+         <td>${book.title}</td>
+         <td>${book.author}</td>
+         <td>${book.pubTime}</td>
+         <td>${book.price}</td>
+         <td>${book.amount}</td>
+         <td>${book.picture}</td>
+         <td><a href="/book?action=search&id=${book.id}">EDIT</a></td>
+         <td><a href="/book?action=remove&id=${book.id}">REMOVE</a></td>
+     </tr>
+    </c:forEach>
     <%--小脚本  一个方法放到了2个小脚本中--%>
-    <%
+  <%--  <%
     List<Book> books= (List<Book>) session.getAttribute("books");
     for(Book book:books){
  %>
@@ -67,14 +116,14 @@
         <td><%= book.getPrice()%></td>
         <td><%= book.getAmount()%></td>
         <td><%= book.getPicture()%></td>
-        <%--<%=book.getId()%> 这个是表达式--%>
+        &lt;%&ndash;<%=book.getId()%> 这个是表达式&ndash;%&gt;
         <td><a href="/book?action=search&id=<%=book.getId()%>">EDIT</a></td>
-        <td><a href="/book?action=search&id=<%=book.getId()%>">REMOVE</a></td>
+        <td><a href="/book?action=remove&id=<%=book.getId()%>" onclick="return del()">REMOVE</a></td>
     </tr>
-    <%--小脚本--%>
+    &lt;%&ndash;小脚本&ndash;%&gt;
     <%
     }
-    %>
+    %>--%>
 
 </table>
 </body>

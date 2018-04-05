@@ -29,12 +29,13 @@
     <br>
     <input type="submit" value="Sign in">
 </form>
-<%
+${requestScope.message}
+<%--<%
     String message= (String) request.getAttribute("message");
     if (message != null) {
         out.print(message);
     }
 //    404是找不到页面
-%>
+%>--%>
 </body>
 </html>

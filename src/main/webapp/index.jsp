@@ -25,12 +25,13 @@
     <input type="submit" value="Sign in">
   </form>
   <%--下面的内容是小脚本--%>
-  <%
+  ${requestScope.message}
+ <%-- <%
   String message=(String)request.getAttribute("message");
     if (message != null) {
 out.print(message);
     }
-  %>
+  %>--%>
   <hr>
   <a href="sign_up.jsp" >sign up</a>
   </body>

@@ -8,8 +8,12 @@
     * [登录的jsp页面](src/main/webapp/index.jsp)	
     * [注册的jsp页面](src/main/webapp/sign_up.jsp)	
     * [注销对应的home主页面](src/main/webapp/home.jsp)	
+    * [编辑图书对应的页面](src/main/webapp/edit.jsp)	
 * 数据库相关     
     * [创建数据库SQL语句](sql/db.sql)	
+* 其他相关     
+    * [模板类](src/main/java/demo/model/Book.java)	
+    * [数据库操作类](src/main/java/demo/util/DB.java)	
 * 文档    
      * [数据库的使用文档](resource/数据库的使用.md)	
      * [基于Gradle的JavaWeb项目](resource/基于Gradle的JavaWeb项目.md)		
