@@ -16,4 +16,21 @@
     <!--<servlet-name>signIn</servlet-name>-->
     <!--<url-pattern>/signIn</url-pattern>-->
     <!--</servlet-mapping>-->
+
+    <!--过滤器的配置  class文件必须用这种方式配置-->
+    <!--<filter>
+        <filter-name>encoding</filter-name>
+        <filter-class>demo.util.EncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>encoding </filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>-->
+
+    <!--监听器的配置  注解的方式解决比较简单-->
+    <!--<listener>
+        <listener-class>demo.util.EncodingFilter</listener-class>
+    </listener>-->
+
+
 </web-app>
