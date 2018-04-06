@@ -26,6 +26,19 @@ public class Book implements Serializable{
         this.picture = picture;
     }
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", pubTime='" + pubTime + '\'' +
+                ", price=" + price +
+                ", amount=" + amount +
+                ", picture='" + picture + '\'' +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

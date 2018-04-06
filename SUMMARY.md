@@ -18,6 +18,14 @@
     * [监听器类](src/main/java/demo/util/ListenerTest.java)	
     * [数据库的源数据](src/main/java/demo/util/MetaTest.java)	
     * [数据库的事务](src/main/java/demo/util/TransactionTest.java)	
+* json数据     
+    * [json对象](src/main/java/demo/data/object.json)	
+    * [json数组](src/main/java/demo/data/array.json)	
+    * [返回的数据格式](src/main/java/demo/data/ip.json)	
+    * [json数据的解析](src/main/java/demo/json/JsonTestDemo.java)	
+    * [4中解析库的运用](src/main/java/demo/json/JSONTest.java)	
+    * [数据解析练习的java对象](src/main/java/demo/json/User.java)	
+
 * 文档    
      * [数据库的使用文档](resource/数据库的使用.md)	
      * [基于Gradle的JavaWeb项目](resource/基于Gradle的JavaWeb项目.md)		

@@ -1,0 +1,14 @@
+{
+  "name": "Tom",
+  "age": 12,
+  "test": [
+    "test",
+    12.3,
+    true,
+    null,
+    {
+      "name": "Tom",
+      "age": 12
+    }
+  ]
+}
