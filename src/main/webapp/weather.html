@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+
+    <meta charset="UTF-8"> <!-- for HTML5 -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
     <title>Title</title>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script>
@@ -21,8 +24,8 @@
                         if (res.HeWeather6[0].status === 'ok') {
                             var weather = res.HeWeather6[0].now.cond_txt;
                             var tempreture = res.HeWeather6[0].now.tmp;
-                            //   $('div').html('<p>天气：' + weather + '</p><p>温度：' + tempreture + '℃</p>');
-                            $('div').html('<p>' + weather + '</p><p>' + tempreture + '</p>');
+                            //  $('div').html('<p>天气：' + weather + '</p><p>温度：' + tempreture + '℃</p>');
+                                $('div').html('<p>' + weather + '</p><p>' + tempreture + '</p>');
                         } else {
                             $('div').text('Server Error').css('color', 'red');
                         }
