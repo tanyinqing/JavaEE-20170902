@@ -9,13 +9,35 @@
 <html>
 <head>
     <title>Title</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+            $('#email').blur(function () {
+                $.ajax({
+                    url: '/user', // request url
+                    type: 'post', // request method: get, post, put, delete...
+                    data: { // request data
+                        email: $('#email').val(),
+                        action: 'isEmailExisted'
+                    },
+                    success: function (res) { // success callback
+                        if (res === 'true') {
+                            $('small').text('Email is already existed.').css('color', 'red');
+                        } else {
+                            $('small').text('Email is available.').css('color', 'green');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
 <h1>Sign up page</h1>
 <%--<form action="signUp.jsp" method="post">--%>
 <form action="/user" method="post">  //运用java来处理请求
     <input type="hidden" name="action" value="signUp">
-    <input name="email" placeholder="Email" value="tom@tom.com"> <br>
+    <input id="email" name="email" placeholder="Email" value="tom@tom.com"> <small></small><br>
     <input name="username" placeholder="username" value="tan"> <br>
     <input type="password" name="password" placeholder="Passsword" value="123"><br>
     <select name="citiies" multiple>

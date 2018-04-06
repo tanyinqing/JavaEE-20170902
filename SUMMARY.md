@@ -9,6 +9,9 @@
     * [注册的jsp页面](src/main/webapp/sign_up.jsp)	
     * [注销对应的home主页面](src/main/webapp/home.jsp)	
     * [编辑图书对应的页面](src/main/webapp/edit.jsp)	
+* 异步提交请求     
+    * [异步提交请求页面](src/main/webapp/ajax.html)	
+    * [天气预报的异步提交](src/main/webapp/weather.html)	
 * 数据库相关     
     * [创建数据库SQL语句](sql/db.sql)	
 * 其他相关     
@@ -23,13 +26,13 @@
     * [json数组](src/main/java/demo/data/array.json)	
     * [返回的数据格式](src/main/java/demo/data/ip.json)	
     * [json数据的解析](src/main/java/demo/json/JsonTestDemo.java)	
-    * [4中解析库的运用](src/main/java/demo/json/JSONTest.java)	
+    * [4种解析库的运用](src/main/java/demo/json/JSONTest.java)	
     * [数据解析练习的java对象](src/main/java/demo/json/User.java)	
-
 * 文档    
      * [数据库的使用文档](resource/数据库的使用.md)	
      * [基于Gradle的JavaWeb项目](resource/基于Gradle的JavaWeb项目.md)		
      * [Gradle 的安装和同步](resource/gradle.md)	
+     
      
      
 * 180123 JSP 语法

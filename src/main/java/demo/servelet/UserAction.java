@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.crypto.dsig.SignedInfo;
 import java.io.IOException;
+import java.io.Writer;
 import java.sql.*;
 
 @WebServlet("/user")
@@ -29,7 +30,40 @@ public class UserAction extends HttpServlet {
         if (action.equals("signOut")) {
             signOut(req, resp);
         }
+        if (action.equals("isEmailExisted")) {
+            isEmailExisted(req, resp);
+        }
     }
+
+    private void isEmailExisted(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String email = req.getParameter("email");
+
+        Connection connection = DB.getConnection();
+        String sql = "SELECT * FROM db.user WHERE email = ?";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, email);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            resp.setContentType("text/html; charset=UTF-8");
+            Writer writer = resp.getWriter();
+
+            if (resultSet.next()) {
+                // email is existed.
+                writer.write("true");
+            } else {
+                // email is not existed.
+                writer.write("false");
+            }
+
+            DB.close(resultSet, preparedStatement, connection);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private void signIn(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
